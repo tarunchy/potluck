@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Developing a Secure and Efficient Single Page App with Azure Serverless Architecture</title>
+  </head>
+  <body>
+    <h1>Overview</h1>
+    <p>Develop a Single Page App that allows users to verify their eligibility for health benefit coverage. The app will be implemented as a Python-based web app that calls an Azure Functions-based backend API. The app will be secured via login credentials and will only be accessible via a private link. All data will be fetched via API calls that trigger HTTP REST calls to the Azure Functions-based backend API.</p>
+
+    <h2>Security</h2>
+    <p>To ensure maximum security, the backend API implemented via Azure Functions must be accessed via a private link and should not be exposed to the internet. This can be achieved by using Azure App Service to host the web app and another app service in the Virtual Network (VNET) to host Azure Functions. The web app in the App Service will work on a specific VNET and will only be exposed to the internet via Application Gateway. Additionally, role-based access control (RBAC) will be implemented to ensure that only authorized users have access to the app and its resources. Azure Not Started Directory (Azure AD) will be used for authentication and authorization of users. Finally, SSL/TLS certificates will be used to encrypt all traffic between the app and its backend services.</p>
+
+    <h2>Serverless Architecture</h2>
+    <p>The entire stack will be implemented as a serverless architecture, with Azure Functions accessing data from Azure Storage and Azure Cosmos DB via a private link. This approach will ensure maximum efficiency and cost-effectiveness.</p>
+
+    <h2>Monitoring</h2>
+    <p>To ensure end-to-end application monitoring, Azure App Insights will be used. This tool will provide real-time monitoring and diagnostics, as well as log analytics and performance monitoring. This will help the product team identify and fix any issues quickly, and provide insights into user behavior and usage patterns.</p>
+
+    <h2>Design Decision</h2>
+    <img src="https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/images/compute-choices.png" alt="Azure Decision Tree Compute">
+
+    <h2>Solution Architecture</h2>
+    <img src="https://drive.google.com/uc?id=1iQgXF05GAHxtiECyybBM5WcmBMArgqBL" alt="Azure Decision Tree Compute">
+
+    <h2>Agile Planning</h2>
+    <table>
+      <thead>
+        <thead>
+            <tr>
+              <th>Epic</th>
+              <th>Feature</th>
+              <th>Story</th>
+              <th>Status</th>
+              <th>Due Date</th>
+              <th>Owner</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Azure Serverless POC</td>
+              <td>Infrastructure</td>
+              <td>Set up Azure subscription and Resource Group</td>
+              <td>Not Started</td>
+              <td>2023-04-03</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td rowspan="3">Azure Serverless POC</td>
+              <td>Infrastructure</td>
+              <td>Implement Terraform scripts for provisioning resources</td>
+              <td>Not Started</td>
+              <td>2023-04-04</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>Infrastructure</td>
+              <td>Implement Azure DevOps YAML-based pipeline</td>
+              <td>Not Started</td>
+              <td>2023-04-05</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>App Dev</td>
+              <td>Implement the Single Page App in Python</td>
+              <td>Not Started</td>
+              <td>2023-04-10</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td rowspan="3">Azure Serverless POC</td>
+              <td>App Dev</td>
+              <td>Implement backend APIs using Azure Functions</td>
+              <td>Not Started</td>
+              <td>2023-04-10</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>App Dev</td>
+              <td>Implement logic to retrieve data from Azure Storage and Cosmos DB</td>
+              <td>Not Started</td>
+              <td>2023-04-13</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td>App Dev</td>
+              <td>Implement Azure DevOps YAML-based pipeline for automated deployment of application code</td>
+              <td>Not Started</td>
+              <td>2023-04-14</td>
+              <td>TBD</td>
+            </tr>
+            <tr>
+              <td rowspan="4">Azure Serverless POC</td>
+              <td>Integration Test</td>
+              <td>Test and debug the web app and backend APIs</td>
+              <td>Not Started</td>
+              <td>2023-04-17</td>
+              <td>TBD</td>
+            </tr>
+      </tbody>
+    </table>
+
+    <h2>Conclusion</h2>
+    <p>In conclusion, the Single Page App developed as part of this project will be a secure, efficient, and cost-effective solution for verifying member eligibility for health benefit coverage. By leveraging the power of Azure Functions, Azure Storage, and Azure Cosmos DB, and using Azure App Insights for monitoring and diagnostics, this app will provide users with a seamless experience while ensuring maximum security and efficiency.</p>
+</body>
+</html>
