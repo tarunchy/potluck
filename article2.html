@@ -1,29 +1,260 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Developing a Secure and Efficient Single Page App with Azure Serverless Architecture</title>
-  </head>
+   
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Azure Serverless POC</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"  crossorigin="anonymous">
+      
+        <script src="https://unpkg.com/mermaid@8.13.5/dist/mermaid.min.js"></script>
+      
+        <script>
+          mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+              useMaxWidth: true,
+              htmlLabels: true,
+              curve: 'linear',
+              arrowMarkerAbsolute: true
+            }
+          });
+        </script>
+        
+        <style>
+      .author-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        border-top: 1px solid #ccc;
+      }
+      
+      .author-bio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      
+      .author-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+      
+      .author-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      
+      .author-description {
+        text-align: center;
+        max-width: 500px;
+      }
+      
+      .author-links {
+        text-align: center;
+      }
+      
+      .linkedin-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #0077b5;
+      }
+      
+      .linkedin-logo {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      
+      
+      figure {
+        margin: 20px 0;
+        text-align: center;
+      }
+      
+      figcaption {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #555;
+      }
+      
+          /* General styles */
+          body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+          }
+        
+          /* Header styles */
+          header {
+            padding: 20px;
+            background-color: #1e88e5;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+        
+          h1 {
+            margin-bottom: 5px;
+            font-size: 2.7rem;
+          }
+        
+          h2 {
+            margin-top: 0;
+            padding: 10px;
+            font-size: 1.6rem;
+            font-weight: 400;
+          }
+        
+          /* Article styles */
+          article {
+            padding: 30px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+          }
+        
+          section {
+            margin-bottom: 40px;
+          }
+        
+          h3 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-bottom: 2px solid #1e88e5;
+            padding-bottom: 10px;
+          }
+        
+          h4 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 500;
+          }
+        
+          p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+          }
+        
+          ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+          }
+        
+          li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+          }
+        
+          .mermaid {
+            margin: 20px 0;
+            text-align: center;
+          }
+        </style>
+        
+        
+        
+      
+      </head>
   <body>
-
-    <h1>Design Decision</h1>
+    <header>
+        <h1>Azure  POC</h1>
+        <h2> Serverless App</h2>
+      </header>
+    
+      <article>
+<section>
+    <h3>Design Decision</h3>
     <img src="https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/images/compute-choices.png" alt="Azure Decision Tree Compute">
 
-
-    <h2>Overview</h2>
+    </section>
+    <h3>Overview</h3>
     <p>Develop a Single Page App that allows users to verify their eligibility for health benefit coverage. The app will be implemented as a Python-based web app that calls an Azure Functions-based backend API. The app will be secured via login credentials and will only be accessible via a private link. All data will be fetched via API calls that trigger HTTP REST calls to the Azure Functions-based backend API.</p>
 
-    <h2>Security</h2>
+    <h3>Security</h3>
     <p>To ensure maximum security, the backend API implemented via Azure Functions must be accessed via a private link and should not be exposed to the internet. This can be achieved by using Azure App Service to host the web app and another app service in the Virtual Network (VNET) to host Azure Functions. The web app in the App Service will work on a specific VNET and will only be exposed to the internet via Application Gateway. Additionally, role-based access control (RBAC) will be implemented to ensure that only authorized users have access to the app and its resources. Azure Not Started Directory (Azure AD) will be used for authentication and authorization of users. Finally, SSL/TLS certificates will be used to encrypt all traffic between the app and its backend services.</p>
 
-    <h2>Serverless Architecture</h2>
+    <h3>Serverless Architecture</h3>
     <p>The entire stack will be implemented as a serverless architecture, with Azure Functions accessing data from Azure Storage and Azure Cosmos DB via a private link. This approach will ensure maximum efficiency and cost-effectiveness.</p>
-
-    <h2>Monitoring</h2>
-    <p>To ensure end-to-end application monitoring, Azure App Insights will be used. This tool will provide real-time monitoring and diagnostics, as well as log analytics and performance monitoring. This will help the product team identify and fix any issues quickly, and provide insights into user behavior and usage patterns.</p>
-
+     
    
-    <h2>Solution Architecture</h2>
-    <img src="https://drive.google.com/uc?id=1iQgXF05GAHxtiECyybBM5WcmBMArgqBL" alt="Azure Decision Tree Compute">
+    <h3>Monitoring</h3>
+    <p>To ensure end-to-end application monitoring, Azure App Insights will be used. This tool will provide real-time monitoring and diagnostics, as well as log analytics and performance monitoring. This will help the product team identify and fix any issues quickly, and provide insights into user behavior and usage patterns.</p>
+    
+
+    <section>
+        <h3>Solution Architecture</h3>
+     
+        <figure>
+            <div class="mermaid">
+                graph LR;
+                subgraph Web App
+                    A((Single Page App))
+                end
+
+                subgraph Backend Services
+                    B((Azure Functions))
+                    C(Azure Storage)
+                    D(Azure Cosmos DB)
+                end
+
+                subgraph App Service
+                    E(Azure App Service)
+                end
+
+                subgraph VNET
+                    F(Azure Function App)
+                end
+
+                subgraph Private Link
+                    G{Private Link}
+                end
+
+                subgraph Application Gateway
+                    H((Application Gateway))
+                end
+
+                subgraph Azure Active Directory
+                    I((Azure AD))
+                end
+
+                subgraph Azure App Insights
+                    J((App Insights))
+                end
+
+                A --> H
+                H --> E
+                E --> G
+                G --> F
+                F --> B
+                B --> C
+                B --> D
+                I --> E
+                J --> E
+
+            </div>
+            <figcaption>Figure 1 - Serverless POC Solution Architecture</figcaption>
+          </figure>
+    
+          
+      </section>
 
     <h2>Agile Planning</h2>
     <table>
@@ -104,5 +335,6 @@
 
     <h2>Conclusion</h2>
     <p>In conclusion, the Single Page App developed as part of this project will be a secure, efficient, and cost-effective solution for verifying member eligibility for health benefit coverage. By leveraging the power of Azure Functions, Azure Storage, and Azure Cosmos DB, and using Azure App Insights for monitoring and diagnostics, this app will provide users with a seamless experience while ensuring maximum security and efficiency.</p>
+      </article>
 </body>
 </html>
