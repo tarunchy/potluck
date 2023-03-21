@@ -4,7 +4,12 @@
     <title>Developing a Secure and Efficient Single Page App with Azure Serverless Architecture</title>
   </head>
   <body>
-    <h1>Overview</h1>
+
+    <h1>Design Decision</h1>
+    <img src="https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/images/compute-choices.png" alt="Azure Decision Tree Compute">
+
+
+    <h2>Overview</h2>
     <p>Develop a Single Page App that allows users to verify their eligibility for health benefit coverage. The app will be implemented as a Python-based web app that calls an Azure Functions-based backend API. The app will be secured via login credentials and will only be accessible via a private link. All data will be fetched via API calls that trigger HTTP REST calls to the Azure Functions-based backend API.</p>
 
     <h2>Security</h2>
@@ -16,9 +21,7 @@
     <h2>Monitoring</h2>
     <p>To ensure end-to-end application monitoring, Azure App Insights will be used. This tool will provide real-time monitoring and diagnostics, as well as log analytics and performance monitoring. This will help the product team identify and fix any issues quickly, and provide insights into user behavior and usage patterns.</p>
 
-    <h2>Design Decision</h2>
-    <img src="https://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/images/compute-choices.png" alt="Azure Decision Tree Compute">
-
+   
     <h2>Solution Architecture</h2>
     <img src="https://drive.google.com/uc?id=1iQgXF05GAHxtiECyybBM5WcmBMArgqBL" alt="Azure Decision Tree Compute">
 
