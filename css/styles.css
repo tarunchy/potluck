@@ -76,6 +76,40 @@
   }
 }
 
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.article-tile {
+  position: relative;
+  background-color: #f0f0f0;
+  padding: 16px;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+}
+
+.article-preview {
+  position: absolute;
+  display: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  width: 300px;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.article-tile:hover .article-preview {
+  display: block !important;
+}
+
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
